@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: studentgateway-microservice
+  name: studentgateway-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: studentgateway-microservice
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: studentgateway-microservice
+    spec:
+      containers:
+      - image: swapnadocker146/microservicedocker-studentgateway-microservice:latest
+        name: studentgateway-microservice
+        resources: {}
+status: {}

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: config-server
+  name: config-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: config-server
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: config-server
+    spec:
+      containers:
+      - image: swapnadocker146/microservicedocker-config-server:latest
+        name: config-server
+        resources: {}
+status: {}

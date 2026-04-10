@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: order-microservice
+  name: order-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-microservice
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: order-microservice
+    spec:
+      containers:
+      - image: swapnadocker146/microservicedocker-order-microservice:latest
+        name: order-microservice
+        resources: {}
+status: {}

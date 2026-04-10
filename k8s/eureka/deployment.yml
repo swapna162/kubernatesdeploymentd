@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: service-registry
+  name: service-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-registry
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: service-registry
+    spec:
+      containers:
+      - image: swapnadocker146/microservicedocker-service-registry:latest
+        name: service-registry
+        resources: {}
+status: {}
