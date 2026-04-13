@@ -1,18 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: null
-  labels:
-    app: order-microservice
   name: order-microservice
 spec:
-  ports:
-  - name: 8083-8083
-    port: 8083
-    protocol: TCP
-    targetPort: 8083
+  type: NodePort
   selector:
     app: order-microservice
-  type: ClusterIP
-status:
-  loadBalancer: {}
+  ports:
+    - name: http
+      port: 8082
+      targetPort: 8082
+      nodePort: 30093

@@ -1,6 +1,12 @@
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: studentgateway-microservice-config
 data:
   application.yml: |
+    server:
+      port: 9090   
+
     spring:
       datasource:
         url: jdbc:postgresql://db:5432/testdb
@@ -11,7 +17,3 @@ data:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
         hibernate:
           ddl-auto: update
-kind: ConfigMap
-metadata:
-  creationTimestamp: null
-  name: studentgateway-microservice-config

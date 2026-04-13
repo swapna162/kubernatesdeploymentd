@@ -7,12 +7,13 @@ metadata:
   name: service-registry
 spec:
   ports:
-  - name: 8083-8083
-    port: 8083
-    protocol: TCP
-    targetPort: 8083
+    - name: http
+      port: 8761
+      protocol: TCP
+      targetPort: 8761
+      nodePort: 30091
   selector:
     app: service-registry
-  type: ClusterIP
+  type: NodePort
 status:
   loadBalancer: {}

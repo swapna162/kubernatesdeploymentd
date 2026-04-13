@@ -2,21 +2,32 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: studentgateway-microservice
-  name: studentgateway-microservice
+    app: student-microservice
+  name: student-microservice
+
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: studentgateway-microservice
-  strategy: {}
+      app: student-microservice
+
   template:
     metadata:
       labels:
-        app: studentgateway-microservice
+        app: student-microservice
+
     spec:
       containers:
-      - image: swapnadocker146/microservicedocker-studentgateway-microservice:latest
-        name: studentgateway-microservice
-        resources: {}
-status: {}
+        - name: student-microservice
+          image: swapnadocker146/microservicedocker-student-microservice:latest
+          ports:
+            - containerPort: 8081
+
+          volumeMounts:
+            - name: config
+              mountPath: /config
+
+      volumes:
+        - name: config
+          configMap:
+            name: student-microservice-config

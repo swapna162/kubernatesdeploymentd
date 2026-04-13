@@ -1,17 +1,20 @@
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: order-microservice-config
 data:
   application.yml: |
+    server:
+      port: 8082
+
     spring:
       datasource:
         url: jdbc:postgresql://db:5432/testdb
         username: postgres
         password: postgres
         driver-class-name: org.postgresql.Driver
+
       jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
         hibernate:
           ddl-auto: update
-kind: ConfigMap
-metadata:
-  creationTimestamp: null
-  name: order-microservice-config
